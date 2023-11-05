@@ -27,6 +27,7 @@ public class SignIN extends AppCompatActivity {
         password=findViewById(R.id.password);
         login = findViewById(R.id.loginbtn);
         next=findViewById(R.id.createacc);
+        next=findViewById(R.id.createacc);
 
 
 
