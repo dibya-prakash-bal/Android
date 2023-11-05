@@ -24,9 +24,11 @@ public class SignIN extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         username=findViewById(R.id.username);
+        username=findViewById(R.id.username);
         password=findViewById(R.id.password);
         login = findViewById(R.id.loginbtn);
         next=findViewById(R.id.createacc);
+
 
 
 
