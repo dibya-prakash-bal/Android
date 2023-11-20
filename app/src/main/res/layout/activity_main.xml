@@ -5,23 +5,19 @@
     style="@style/TextAppearance.Material3.BodyLarge"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:scrollbarSize="50sp"
-
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/ombre2">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        main
-        android:layout_marginBottom="268dp"
-        android:backgroundTint="#4CAF52"
 
         android:layout_marginBottom="264dp"
         android:backgroundTint="#4CAF51"
-        main
+
         android:hint="Login"
         app:flow_horizontalAlign="center"
         app:layout_constraintBottom_toBottomOf="parent"

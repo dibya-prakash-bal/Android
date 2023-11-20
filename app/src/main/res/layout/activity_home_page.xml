@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home_page">
+    tools:context=".Home_page"
+    android:background="@drawable/ombre2">
 
     <ListView
         android:id="@+id/ListView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="377dp"
+        android:layout_height="676dp"
+        android:padding="8dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
