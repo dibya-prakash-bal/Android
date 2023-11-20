@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/bg5">
+    android:background="@drawable/ombre">
 
     <TextView
         android:id="@+id/signin"
@@ -69,7 +69,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/design_default_color_secondary"
+        android:backgroundTint="#4CAF51"
         android:hint="Login">
 
     </com.google.android.material.button.MaterialButton>
@@ -113,7 +113,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="48dp"
-            android:src="@drawable/google"
+            android:src="@drawable/googler"
             android:paddingLeft="20dp"
             android:layout_marginBottom="10dp"
             >
@@ -121,7 +121,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/insta"
+            android:src="@drawable/instar"
             android:paddingLeft="20dp"
             android:layout_marginBottom="10dp">
         </ImageView>
@@ -129,7 +129,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/fb"
+            android:src="@drawable/fbr"
             android:paddingLeft="20dp"
             android:layout_marginBottom="10dp">
         </ImageView>
@@ -143,8 +143,5 @@
         </ImageView>
 
     </LinearLayout>
-
-
-
 
 </RelativeLayout>
