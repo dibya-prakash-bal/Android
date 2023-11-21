@@ -146,7 +146,7 @@ public class PlaySong extends AppCompatActivity {
             public void onClick(View v) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
-                mediaPlayer = null;  // Set the MediaPlayer to null
+                mediaPlayer = null;
 
                 if (position != songs.size() - 1) {
                     position = position + 1;
@@ -163,9 +163,9 @@ public class PlaySong extends AppCompatActivity {
                 textView.setText(textContent);
             }
         });
-        for (File song : songs) {
-            Log.d("SongList", "Song: " + song.getName());
-        }
+//        for (File song : songs) {
+//            Log.d("SongList", "Song: " + song.getName());
+//        }
 
 
     }

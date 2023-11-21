@@ -38,10 +38,10 @@ public class Home_page extends AppCompatActivity {
 //                        Log.d("TAG", "Permission granted"); // Add this log statement
 //                        Toast.makeText(Home_page.this, "Runtime permission given", Toast.LENGTH_SHORT).show();
                         ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
-                        Log.d("TAG", "Found " + mySongs.size() + " songs"); // Add this log statement
+                        Log.d("TAG", "Found " + mySongs.size() + " songs");
                         String[] items = new String[mySongs.size()];
                         for (int i = 0; i < mySongs.size(); i++) {
-                            items[i] = mySongs.get(i).getName().replace("mp3", "");
+                            items[i] = mySongs.get(i).getName().replace(".mp3", "");
                         }
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(Home_page.this, android.R.layout.simple_list_item_1, items);
                         listView.setAdapter(adapter);
@@ -61,6 +61,7 @@ public class Home_page extends AppCompatActivity {
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
                         // You can add a log statement here if needed.
+
                     }
 
                     @Override
@@ -85,7 +86,7 @@ public class Home_page extends AppCompatActivity {
                     if(myFile.getName().endsWith(".mp3") && !myFile.getName().startsWith(".")){
                         arrayList.add(myFile);
                         if (myFile.getName().endsWith(".mp3")) {
-                            arrayList.add(myFile);
+//                            arrayList.add(myFile);
                             Log.d("TAG", "Found MP3 file: " + myFile.getAbsolutePath());
                         } else {
                             Log.d("TAG", "Skipped file: " + myFile.getAbsolutePath());
