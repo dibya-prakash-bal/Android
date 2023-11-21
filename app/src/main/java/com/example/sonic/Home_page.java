@@ -35,8 +35,8 @@ public class Home_page extends AppCompatActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        Log.d("TAG", "Permission granted"); // Add this log statement
-                        Toast.makeText(Home_page.this, "Runtime permission given", Toast.LENGTH_SHORT).show();
+//                        Log.d("TAG", "Permission granted"); // Add this log statement
+//                        Toast.makeText(Home_page.this, "Runtime permission given", Toast.LENGTH_SHORT).show();
                         ArrayList<File> mySongs = fetchSongs(Environment.getExternalStorageDirectory());
                         Log.d("TAG", "Found " + mySongs.size() + " songs"); // Add this log statement
                         String[] items = new String[mySongs.size()];
