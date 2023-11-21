@@ -1,7 +1,5 @@
 package com.example.sonic;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -11,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import java.util.Locale;
+import android.os.Handler;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -33,6 +33,7 @@ public class PlaySong extends AppCompatActivity {
     int position;
     SeekBar seekBar;
     Thread updateSeek;
+    TextView durationTextView, progressTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,9 @@ public class PlaySong extends AppCompatActivity {
         previous = findViewById(R.id.previous);
         next = findViewById(R.id.next);
         seekBar = findViewById(R.id.seekBar);
+        durationTextView = findViewById(R.id.durationTextView);
+        progressTextView = findViewById(R.id.progressTextView);
+
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -55,6 +59,16 @@ public class PlaySong extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, uri);
         mediaPlayer.start();
         seekBar.setMax(mediaPlayer.getDuration());
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                updateProgress();
+                handler.postDelayed(this, 1000); // Update every second
+            }
+        }, 1000);
+
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -132,12 +146,14 @@ public class PlaySong extends AppCompatActivity {
             public void onClick(View v) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
-                if(position!=songs.size()-1){
+                mediaPlayer = null;
+
+                if (position != songs.size() - 1) {
                     position = position + 1;
-                }
-                else{
+                } else {
                     position = 0;
                 }
+
                 Uri uri = Uri.parse(songs.get(position).toString());
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
                 mediaPlayer.start();
@@ -145,13 +161,28 @@ public class PlaySong extends AppCompatActivity {
                 seekBar.setMax(mediaPlayer.getDuration());
                 textContent = songs.get(position).getName().toString();
                 textView.setText(textContent);
-
             }
         });
-        for (File song : songs) {
-            Log.d("SongList", "Song: " + song.getName());
+//        for (File song : songs) {
+//            Log.d("SongList", "Song: " + song.getName());
+//        }
+
+
+    }
+    private void updateProgress() {
+        if (mediaPlayer != null) {
+            int duration = mediaPlayer.getDuration();
+            int currentPosition = mediaPlayer.getCurrentPosition();
+
+            // Update durationTextView
+            int minutes = duration / 1000 / 60;
+            int seconds = (duration / 1000) % 60;
+            durationTextView.setText(String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
+
+            // Update progressTextView
+            minutes = currentPosition / 1000 / 60;
+            seconds = (currentPosition / 1000) % 60;
+            progressTextView.setText(String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
         }
-
-
     }
 }
